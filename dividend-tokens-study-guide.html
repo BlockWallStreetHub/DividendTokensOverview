@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dividend Tokens on Robinhood Chain | Block Wall Street</title>
+<style>
+:root{--bg:#0e0f13;--panel:#171922;--panel2:#1f2230;--line:#2b2f40;--text:#e9eaf0;--mute:#9aa0b4;--gold:#e8b74a;--green:#4ade80;--red:#f87171;--blue:#60a5fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{padding:30px 16px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#171922,#0e0f13)}
+header .in,main{max-width:980px;margin:0 auto}
+.kicker{color:var(--gold);letter-spacing:.12em;font-size:12px;text-transform:uppercase;font-weight:700}
+h1{margin:6px 0;font-size:28px;line-height:1.2}
+.sub{color:var(--mute);margin:0}
+nav{position:sticky;top:0;z-index:5;background:#12141bee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .in{max-width:980px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav button{background:var(--panel);color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--gold);color:#1a1405;border-color:var(--gold);font-weight:700}
+main{padding:22px 16px 80px}
+section{display:none}section.on{display:block}
+h2{font-size:24px;margin:8px 0 10px}
+h3{font-size:18px;margin:22px 0 8px;color:var(--gold)}
+p{margin:0 0 12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.bull{border-left:4px solid var(--green)}
+.watch{border-left:4px solid var(--red)}
+.need{border-left:4px solid var(--blue)}
+.note{border-left:4px solid var(--gold)}
+.tag{display:inline-block;font-size:12px;border-radius:6px;padding:2px 8px;margin-right:6px;background:var(--panel2);color:var(--mute);border:1px solid var(--line)}
+ul,ol{margin:6px 0 10px 20px;padding:0}li{margin:5px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:var(--gold)}
+.tw{overflow-x:auto}
+.mut{color:var(--mute)}.small{font-size:13px}
+.opt{display:block;width:100%;text-align:left;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:15px}
+.opt.ok{border-color:var(--green);background:#12301f}.opt.no{border-color:var(--red);background:#341618}
+.exp{display:none;color:var(--mute);font-size:14px;margin-top:6px}
+.score{font-size:18px;font-weight:700;color:var(--gold)}
+a{color:var(--blue)}
+.disc{font-size:13px;color:var(--mute);border-top:1px solid var(--line);margin-top:30px;padding-top:14px}
+.big{font-size:22px;font-weight:700;color:var(--gold)}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:10px 0}
+.chain div{flex:1 1 140px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px}
+.chain b{display:block;color:var(--gold);margin-bottom:2px}
+label{display:block;font-size:13px;color:var(--mute);margin-top:8px}
+input,select{width:100%;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px;font-size:15px}
+.btn{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 12px;margin:4px 6px 4px 0;cursor:pointer;font-size:14px}
+.btn:hover{border-color:var(--gold)}
+.st{font-weight:700}.st.u{color:var(--gold)}.st.n{color:var(--red)}.st.p{color:var(--blue)}.st.y{color:var(--green)}
+</style>
+</head>
+<body>
+<header><div class="in">
+<div class="kicker">Block Wall Street · Study Guide</div>
+<h1>Dividend-Paying Tokens on Robinhood Chain</h1>
+<p class="sub">INDEX, BUCKET and RBTX: how each one turns trading activity into stock-token payouts, what you have to hold, and what to verify. Data as of Oct 31, 2026.</p>
+</div></header>
+<nav><div class="in" id="tabs"></div></nav>
+<main>
+
+<section id="s-start">
+<h2>What a "dividend token" actually is</h2>
+<p>None of these tokens receive a dividend from a company. Each one takes a <b>fee stream</b> (from trading, or from a launchpad), uses it to <b>buy Robinhood Stock Tokens</b> (NVDA, SPCX, AAPL and so on), and sends them to wallets that qualify. The payout is therefore only as steady as three things: the fee stream, the rules for who qualifies, and whoever runs the payout machinery.</p>
+<p>Stock Tokens are tokenized debt securities issued by Robinhood Assets (Jersey) Limited. They track the stock price but do not give legal ownership of the shares.</p>
+
+<h3>The payout chain, and where it breaks</h3>
+<div class="chain">
+<div><b>1 · Activity</b>Trading volume or launchpad fees. Falls when attention falls.</div>
+<div><b>2 · Fee capture</b>Token tax, pool hook, or a fee wallet. Who can change it?</div>
+<div><b>3 · Stock purchase</b>A keeper or "machine" buys the stocks. Slippage and timing matter.</div>
+<div><b>4 · Allocation</b>Thresholds, snapshots, minimum payout sizes. Decides if <i>you</i> get paid.</div>
+<div><b>5 · Delivery</b>Transfer to your wallet. Is it on-chain and checkable?</div>
+</div>
+
+<h3>The three tokens side by side (in the order of this guide)</h3>
+<div class="tw"><table>
+<tr><th></th><th>INDEX</th><th>BUCKET</th><th>RBTX (Robotics Reserve)</th></tr>
+<tr><th>Fee source</th><td>3% ETH tax on every INDEX trade</td><td>3% fee in the BUCKET/ETH pool hook (1.5% in the USDG pool)</td><td>Fees collected through the Pons launchpad (the team calls it "the Pons fee wallet"). The token itself shows 0% tax.</td></tr>
+<tr><th>Cadence</th><td>Every 15 minutes (project description)</td><td>A "Drop" lands when your accrual crosses $2</td><td>Daily "URI" payout</td></tr>
+<tr><th>Who qualifies</th><td>Tiers by balance (reported): about 9,600 INDEX for 1 stock up to about 180,000 for all 18</td><td>On-chain floor of 10,000 BUCKET (rules page); the app says 65,000 to earn</td><td>$100 or more of RBTX at the snapshot, or an activated Robot Mage NFT</td></tr>
+<tr><th>Which stock</th><td>Basket of up to 18</td><td>Holder picks a Bucket (basket) or card elections</td><td>Daily 24-hour community vote (recent rounds: SPCX, NVDA)</td></tr>
+<tr><th>Reported payouts</th><td>$1.66M cumulative (DefiLlama); $27.5K in the last 30 days</td><td>$154,492 to about 2,900 holders since Aug 7 (site; may be cached)</td><td>$15,150 across 23 payouts; latest 4.247 SPCX to 133 wallets (team posts)</td></tr>
+<tr><th>Who runs it</th><td>Operator-run machine (a post says it "restarted today")</td><td>One owner key plus an off-chain keeper</td><td>Team; snapshot timing is owner-requested</td></tr>
+<tr><th>Size</th><td>About $4.7M cap on Oct 24; 27.4K holders</td><td>See live market cap</td><td>About $243K cap; 335 holders; about $47K liquidity</td></tr>
+</table></div>
+<div class="card note"><b>Three different plumbing models.</b> INDEX taxes the token itself. BUCKET uses a fee hook inside its own pool plus an engine. RBTX has no token tax and relies on a fee wallet. A token tax and a pool hook are written into contracts. A fee wallet that "sends out" payouts is a team decision unless the routing is enforced on chain, and I could not verify that.</div>
+<div class="card watch"><b>Shared risks.</b> Payouts fall when volume falls. Thresholds are set in dollars or tokens that move with price. Small holders can qualify and still get cents. All three are small-cap, thin-liquidity tokens that can lose most of their value quickly.</div>
+</section>
+
+<section id="s-index">
+<h2>INDEX <span class="tag">Token-tax dividend</span></h2>
+<h3>How it pays</h3>
+<p>A 3% ETH tax on every INDEX trade buys a basket of tokenized stocks and sends them pro-rata to eligible wallets every 15 minutes, with no staking or claiming. Sources list the basket at anywhere from 5 to 18 stocks; the latest post you shared says 18.</p>
+<div class="card note"><b>Minimum to get paid, from the tweet you shared (today's cycle, balance at snapshot). Unverified, author unknown.</b>
+<div class="tw"><table>
+<tr><th>Hold about</th><th>You receive</th></tr>
+<tr><td>9,600 INDEX (about $85)</td><td>NVDA</td></tr>
+<tr><td>11,600</td><td>+ AAPL, MSFT</td></tr>
+<tr><td>32,000</td><td>+ AMZN, GOOGL, SPCX, META, TSLA</td></tr>
+<tr><td>180,000</td><td>All 18 stocks</td></tr>
+</table></div>
+<ul class="small">
+<li>Each payout skips anything under about $0.03 per stock, so your size decides what you receive.</li>
+<li>The post says the machine restarted today, 7 buy cycles have run since the last payout, and about $6K in stocks is waiting in the distributor.</li>
+<li>$85 for 9,600 INDEX implies a price near $0.0089. The Oct 24 price I found was $0.0048, so the post implies a rise of about 85% in a week.</li>
+</ul></div>
+<h3>The numbers</h3>
+<div class="tw"><table>
+<tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+<tr><td>Price / market cap (Oct 24)</td><td>about $0.0048 / about $4.7M</td><td>Explorer page</td></tr>
+<tr><td>Circulating / max supply</td><td>980.53M / 1B</td><td>DefiLlama</td></tr>
+<tr><td>Cumulative fees / revenue</td><td>$1.87M / $1.71M</td><td>DefiLlama</td></tr>
+<tr><td>Fees: 30 days / 7 days / 24 hours</td><td>$74.9K / $9.0K / $0 (when checked)</td><td>DefiLlama</td></tr>
+<tr><td>Stock distributions to INDEX holders</td><td>$27.5K (30 days); $1.66M cumulative</td><td>DefiLlama</td></tr>
+<tr><td>Treasury stock distributions</td><td>$152.5K cumulative</td><td>DefiLlama</td></tr>
+<tr><td>Project-reported (Sep 9)</td><td>$26.5M volume, $902K distributed, 43.8K wallets paid</td><td>@TheIndexFi</td></tr>
+</table></div>
+<p class="small mut">At the Oct 24 numbers, 30-day holder distributions annualize to about 7% of market cap. If the price really is up 85%, the same distributions annualize to about 3.8%. Distributions rise only if trading volume rises.</p>
+<h3>Ecosystem beyond the token</h3>
+<ul>
+<li><b>Blend:</b> baskets of stocks and memes. The Oct 8 relaunch says dividends stay inside the basket, one trade buys every underlying asset, and owner fees can go back into holder backing.</li>
+<li><b>Indices</b> (lets other tokens build treasuries that turn fees into stock rewards, buybacks or liquidity) and <b>Earn-A-Stock</b> (launch product).</li>
+<li><b>Listings:</b> reported added to Robinhood's tradable assets on Sep 11; trading on Moonshot.</li>
+<li>In my X search the Index account's last original post was Oct 8 (plus one repost on Oct 28). Search may be incomplete.</li>
+</ul>
+<div class="card bull"><b>Bull case</b><ul>
+<li>It has the longest payout record of the three: $1.66M in stocks distributed.</li>
+<li>98% of supply is already circulating, so no scheduled unlock is hanging over holders.</li>
+<li>Fee-to-stock works automatically when volume returns, and a restart with $6K waiting shows the machine is running.</li>
+<li>Blend and Indices give it revenue routes beyond one token.</li>
+</ul></div>
+<div class="card watch"><b>Counter-case and open questions</b><ul>
+<li>The price fell more than 90% from September. The cause is unproven: dilution, insider selling, manipulation and a rug are hypotheses, not findings.</li>
+<li>"Fees never stopped" conflicts with DefiLlama's $0 over 24 hours. A pause and restart would explain both, but check.</li>
+<li>Competitors (Bucket, Robotics Reserve) pitch against it, and Robotics Reserve's community posts compare itself directly with INDEX.</li>
+<li>One reply mentions "URC-5" possibly changing INDEX. I found no confirmation.</li>
+</ul></div>
+<h3>If you want to investigate the crash without accusing anyone</h3>
+<ol class="small">
+<li>Get the holder list just before the first big leg down.</li>
+<li>Rank wallets by <i>net</i> selling in the crash window.</li>
+<li>Exclude pools, routers and the tax and distribution contracts.</li>
+<li>Trace each top seller's funding and token source.</li>
+<li>Label an address an insider only with a demonstrable link (shared funder, deployer, labelled treasury, multisig).</li>
+<li>Compare against liquidity depth: ordinary holders can crash a shallow pool.</li>
+<li>Publish the method and addresses.</li>
+</ol>
+</section>
+
+<section id="s-bucket">
+<h2>BUCKET <span class="tag">Hook-fee engine</span></h2>
+<h3>How it pays</h3>
+<p>A 3% fee on BUCKET/ETH trades (1.5% in the USDG pool) flows to a Treasury. An engine buys stocks, and a Drop lands in your wallet when your accrual crosses $2. You choose a Bucket (a basket) and cards can multiply or redirect your payout. Eligibility is checked on chain at send time; amounts and asset choices are computed off chain by the keeper.</p>
+<h3>What is new since the last guide</h3>
+<ul>
+<li><b>Fantasy Draft (Oct 30):</b> the official post says the first draft wrapped. Leagues are customizable "on the same level as ESPN fantasy football" with a bench, add/drop, trades and swaps, and at season end players "settle up however you want with your friends." The post says nothing about fees or Drops.</li>
+<li><b>Drip BUCKET (Oct 29):</b> deposit BUCKET and hold dripBUCKET. A liquidity band sells BUCKET into ETH as price rises and re-bids below. Fees compound into the share, 20% of trading fees go to Drops, and withdrawals return BUCKET plus ETH. Bucket notes a share is worth 0.993 BUCKET and about 4% more in dollars at that moment, so ETH moves matter too.</li>
+<li><b>8 new Stock Tokens:</b> JPM, V, PYPL, BMNR, MCD, DIS, UBER, GDX can be put in custom Buckets, elected on cards and swapped.</li>
+<li><b>Pick'em:</b> weekly winners announced Oct 30, including a team named "Claude's decision" in 3rd.</li>
+</ul>
+<h3>Controls, from Bucket's own rules page (dated Sep 15)</h3>
+<ul>
+<li>Token contract: no owner, mint or pause. 1B supply, with about 10.9M BUCKET burned. The 3% fee is a constant. Liquidity is locked with no removal path.</li>
+<li>One owner key holds every owner role and signs the keeper loop every 5 minutes. No multisig or timelock.</li>
+<li>The owner can withdraw Treasury ETH and sweep the FeeVault; 20M BUCKET was swept in September to fund operations.</li>
+<li>Payout amounts, asset choice and the $2 threshold are decided off chain by the keeper.</li>
+<li>Audit by SB Security: 31 findings, 28 fixed, all critical and high closed (site).</li>
+</ul>
+<div class="card bull"><b>Bull case</b><ul>
+<li>The most documented control surface of the three, with a published list of who can change what.</li>
+<li>Many revenue lines: swap fees, Drip, launchpad, cards, Pick'em, now the Fantasy Draft.</li>
+<li>It sells its engine to other tokens, and the choice of stock per holder is a real differentiator.</li>
+<li>The site's reported payouts are on-chain transfers anyone can check against the ledger.</li>
+</ul></div>
+<div class="card watch"><b>Counter-case and open questions</b><ul>
+<li><b>Fantasy Draft fees are unconfirmed.</b> The tweet that sparked this says so itself, and the official post is silent. A game people "settle up" privately may produce no protocol fee at all.</li>
+<li><b>"Every trade pays BUCKET holders"</b> overstates it: the site says hops touching a stock token are fee-free with no rebate. Holders are paid by BUCKET trades.</li>
+<li>Threshold conflict: 10,000 BUCKET on chain versus 65,000 in the app. Confirm before you size anything.</li>
+<li>Single-key trust and the 20M BUCKET sweep are the central risks.</li>
+<li>Fetched pages may be cached: the payout counter read the same $154,492 on Oct 26 and Oct 31.</li>
+</ul></div>
+</section>
+
+<section id="s-rbtx">
+<h2>RBTX · Robotics Reserve <span class="tag">Fee-wallet payouts</span></h2>
+<p class="small mut">Identified as the Robotics Reserve token (@RoboticsReserve, contract 0xd5e8…0723 as posted by the team). If you meant a different RBTX, tell me. The project's own website was blocked for me, so this section rests on its X posts, market pages and outside analysts.</p>
+<h3>How it pays</h3>
+<ul>
+<li>Daily "URI" payouts go to wallets holding <b>$100 or more of RBTX</b> at the snapshot, or an <b>activated Robot Mage NFT</b>. No staking.</li>
+<li>A daily 24-hour community vote picks the stock for that round (recent: SPCX, NVDA).</li>
+<li>The team says the "Pons fee wallet sends out URI stock distributions daily" and that there are no team tokens to lock.</li>
+<li>Latest posts: <b>4.247 SPCX to 133 eligible wallets</b>; an NVDA round to 127 wallets; <b>$15,150 distributed across 23 payouts</b>; "over $14k in the last few weeks."</li>
+</ul>
+<h3>Market data (Oct 31)</h3>
+<div class="tw"><table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Price / market cap</td><td>about $0.000283 / about $243K</td></tr>
+<tr><td>Supply</td><td>857.89M, fully circulating</td></tr>
+<tr><td>Liquidity / 24h volume</td><td>about $46.8K / about $8.7K to $12.4K</td></tr>
+<tr><td>Holders</td><td>335 (DEXTools)</td></tr>
+<tr><td>High / low</td><td>$0.000544 (Oct 22) / $0.000141 (Oct 28)</td></tr>
+<tr><td>Token checks (DEXTools)</td><td>0% buy and sell tax, ownership renounced, not mintable, not flagged as a honeypot, not DEXTools-verified</td></tr>
+</table></div>
+<p class="small mut">DEXTools shows -73% over 24 hours while CoinDataFlow shows about -0.5%. A pool this thin produces very different readings depending on timing.</p>
+<h3>Outside scrutiny (@wisehw25, Oct 30; an analyst who also promotes a newsletter)</h3>
+<ul>
+<li>The "$100 minimum" is dollar-denominated, so a $105 balance can drop below $100 at the snapshot without selling a token.</li>
+<li>The owner chooses snapshot timing, allocations depend on actual revenue, and rewards can be zero.</li>
+<li>An earlier site view showed about $3,115 in reserve value and $12,936 in distributions, and another panel said "No recorded drops." That is a discrepancy to reconcile, not proof of anything. The newer $15,150 figure should be checked the same way.</li>
+<li>The reserve is informational and not redeemable, and not a price floor, per the site's own wording as quoted.</li>
+</ul>
+<h3>Arithmetic on the reported numbers</h3>
+<ul>
+<li>$15,150 ÷ 23 payouts ≈ <b>$659 per payout</b>. Split across about 130 wallets, that is roughly <b>$5 per wallet</b> on average.</li>
+<li>$659 a day for a year is about $240K, close to the whole $243K market cap. So either launch-level volume continues, or payouts shrink. Do not annualize it.</li>
+<li>The claim "most stock per holding size on Robinhood Chain" can only be checked wallet by wallet against the other tokens. A small eligible group sharing the same pot makes per-holder payouts look large.</li>
+</ul>
+<h3>The Office and covered calls (announced Oct 29–30, "early next week")</h3>
+<ul>
+<li>Fully collateralized covered calls: a seller escrows tokens and sets premium, exercise price and expiry. The buyer pays the premium, and can exercise for the exercise amount in ETH.</li>
+<li>Premiums and exercise payments are in ETH; <b>the platform takes 10% of the premium</b>; manual exercise only; no resale of positions; settlement delivers tokens, not company shares.</li>
+<li><b>Launch lineup: RBTX, INDEX, BUCKET, STONKBROKER, NET, PONS, NVDA, SPCX.</b> That puts all three tokens in this guide on one options venue.</li>
+<li>The team's own Oct 29 post says an independent security audit, legal assessment and real token-compatibility checks are still required before launch.</li>
+<li>A covered call caps your upside above the strike while you keep the downside. Buyers can lose the whole premium.</li>
+</ul>
+<div class="card bull"><b>Bull case</b><ul>
+<li>Active shipping: the Office, covered calls, daily payouts with named rounds and wallet counts.</li>
+<li>The token itself is simple: renounced, not mintable, 0% tax, so there is no token-level tax trap.</li>
+<li>Low entry point ($100) and an NFT route to eligibility, and a vote that gives holders a say in the stock.</li>
+<li>Options give the three tokens another use beyond holding.</li>
+</ul></div>
+<div class="card watch"><b>Counter-case and open questions</b><ul>
+<li>It is the smallest and youngest: about $243K cap, 335 holders, about $47K of liquidity.</li>
+<li>Payouts depend on a team-run fee wallet and a team-chosen snapshot rather than a contract rule I could verify.</li>
+<li>Payout totals are self-reported and I have not reconciled them to transactions.</li>
+<li>Options are not live and not audited. Fresh options markets on thin tokens can be manipulated.</li>
+<li>Several promotional accounts post payout screenshots. Treat those as marketing.</li>
+</ul></div>
+</section>
+
+<section id="s-calc">
+<h2>Yield reality check</h2>
+<p>A payout rate is distributions divided by the value of the pool that shares them. This tool does the arithmetic with the numbers you give it. The presets use figures from this guide; change them with live data.</p>
+<div class="card">
+<button class="btn" onclick="preset('i1')">INDEX (Oct 24)</button>
+<button class="btn" onclick="preset('i2')">INDEX (tweet price)</button>
+<button class="btn" onclick="preset('b')">BUCKET (enter cap)</button>
+<button class="btn" onclick="preset('r')">RBTX (reported)</button>
+<div class="grid">
+<div><label>Market cap of eligible tokens (USD)</label><input id="cap" type="number" step="any"></div>
+<div><label>Distributions to holders per 30 days (USD)</label><input id="dist" type="number" step="any"></div>
+<div><label>Share of the cap that is eligible (%)</label><input id="elig" type="number" step="any" value="100"></div>
+<div><label>Your holding (USD)</label><input id="hold" type="number" step="any"></div>
+<div><label>What if volume is…</label><select id="mult"><option value="0.25">25% of now</option><option value="0.5">50% of now</option><option value="1" selected>The same</option><option value="2">2x</option><option value="4">4x</option></select></div>
+</div>
+<div id="out" class="card note" style="margin-top:14px">Pick a preset or fill in the numbers.</div>
+<p class="small mut" id="presetNote"></p>
+</div>
+<h3>INDEX tier planner</h3>
+<p class="small mut">Uses the tier sizes from the tweet (unverified) and whatever yield is currently shown above, so load an INDEX preset first or the monthly column will reflect another token. Enter the current INDEX price.</p>
+<div class="card">
+<label>INDEX price (USD)</label><input id="ip" type="number" step="any" value="0.00885">
+<div class="tw"><table id="tiers"></table></div>
+</div>
+<div class="card watch"><b>Read this before trusting any output.</b> Yield here is a snapshot: it assumes distributions stay at the level you entered. Price risk is not included, and it is usually the larger number. USDG Earn on Robinhood was advertised at an estimated 7% APY with no token price risk; that is the benchmark used above.</div>
+</section>
+
+<section id="s-trust">
+<h2>Who controls the payout</h2>
+<div class="tw"><table>
+<tr><th></th><th>INDEX</th><th>BUCKET</th><th>RBTX</th></tr>
+<tr><th>Token contract</th><td>Not reviewed in this research</td><td>No owner, mint or pause (rules page)</td><td>Renounced, not mintable, 0% tax (DEXTools)</td></tr>
+<tr><th>Who triggers payouts</th><td>An operator-run "machine" (per the tweet)</td><td>Owner key via an off-chain keeper</td><td>Team; the snapshot is owner-requested</td></tr>
+<tr><th>Can funds be redirected?</th><td>Not reviewed</td><td>Yes: Treasury ETH withdrawals and FeeVault sweeps by the owner key</td><td>Fee wallet is team-controlled (their description)</td></tr>
+<tr><th>Audit</th><td>Not checked</td><td>SB Security: 31 findings, 28 fixed</td><td>None found for the token; options need one before launch</td></tr>
+<tr><th>Liquidity</th><td>Not checked</td><td>Locked, no removal path</td><td>About $47K in the pair; lock status not checked</td></tr>
+<tr><th>Can you verify payouts?</th><td>DefiLlama tracks distributions</td><td>Ledger and transfers on chain</td><td>Transaction hashes needed; totals are self-reported</td></tr>
+</table></div>
+<h3>A verification checklist for any dividend token</h3>
+<ol>
+<li>Find three real payout transactions and check recipient, asset and amount against the project's post.</li>
+<li>Count the wallets that actually received tokens and compare with the claimed number.</li>
+<li>Read the exact snapshot rule: when it is taken, who requests it, what happens if you cross the threshold just before or after.</li>
+<li>Check whether the threshold is in tokens or dollars, and what happens to it if the price halves.</li>
+<li>Find the minimum payout per asset (INDEX skips about $0.03 per stock; BUCKET pays at $2).</li>
+<li>Ask what happens to the fee stream if the owner key is lost or the team stops.</li>
+<li>Check that the received stock token has a pool you can sell into.</li>
+<li>Compare against the payouts a holder of your size would see on a quiet day, not a launch day.</li>
+</ol>
+</section>
+
+<section id="s-claims">
+<h2>Claims check</h2>
+<div class="tw"><table>
+<tr><th>Claim</th><th>What I found</th><th>Status</th></tr>
+<tr><td>INDEX: "Fees never stopped"</td><td>DefiLlama showed $0 fees over 24 hours when I checked; the same post says the machine restarted today.</td><td class="st u">Unclear</td></tr>
+<tr><td>INDEX: tier thresholds (9,600 / 11,600 / 32,000 / 180,000)</td><td>Consistent with a tiered stock basket and a minimum payout size, but the author is unknown and I could not check the snapshot.</td><td class="st u">Unverified</td></tr>
+<tr><td>INDEX: +24% today, price near $0.0089</td><td>Implied by the $85 figure; my last reading was $0.0048 on Oct 24.</td><td class="st u">Check live</td></tr>
+<tr><td>BUCKET: Fantasy Draft fees feed the stock flywheel</td><td>Official post describes the game but not fees; the author of the original thread says it still needs confirmation.</td><td class="st n">Unconfirmed</td></tr>
+<tr><td>BUCKET: "Every trade pays BUCKET holders"</td><td>Site says hops touching a stock token are fee-free with no rebate; BUCKET trades carry the fee.</td><td class="st u">Overstated</td></tr>
+<tr><td>BUCKET: minimum to earn</td><td>Rules page says 10,000 BUCKET on chain; app says 65,000.</td><td class="st n">Conflict</td></tr>
+<tr><td>RBTX: $15,150 across 23 payouts</td><td>Team post. An outside analyst found a site discrepancy on an earlier figure ($12,936 and "No recorded drops").</td><td class="st u">Self-reported</td></tr>
+<tr><td>RBTX: "most stock per holding size on Robinhood Chain"</td><td>Needs per-wallet comparison. About 130 eligible wallets share each round.</td><td class="st u">Unverifiable</td></tr>
+<tr><td>RBTX: token cannot be minted, 0% tax</td><td>DEXTools reports renounced, not mintable, 0% buy and sell tax.</td><td class="st y">Supported</td></tr>
+<tr><td>RBTX: covered-calls market "early next week"</td><td>Team's own Oct 29 post says audit, legal review and compatibility checks are still required.</td><td class="st p">Not live</td></tr>
+</table></div>
+</section>
+
+<section id="s-quiz">
+<h2>Check yourself</h2>
+<div id="quiz"></div>
+<p class="score" id="score"></p>
+</section>
+
+<section id="s-src">
+<h2>Sources and caveats</h2>
+<ul class="small">
+<li>INDEX: <a href="https://theindex.finance/">theindex.finance</a>; <a href="https://defillama.com/protocol/the-index">DefiLlama</a>; <a href="https://x.com/TheIndexFi/status/2108024215022571710">@TheIndexFi Blend post</a>; explorer and aggregator pages for price and supply; the tier and restart tweet you shared (author unknown).</li>
+<li>BUCKET: <a href="https://bucketmarkets.com/">bucketmarkets.com</a>; <a href="https://bucketmarkets.com/rules">rules page</a>; <a href="https://x.com/RealBucketShop/status/2116274062855176231">Fantasy Draft post</a>; <a href="https://x.com/RealBucketShop/status/2115511618368864305">Drip BUCKET post</a>.</li>
+<li>RBTX: <a href="https://x.com/RoboticsReserve/status/2115812580618874933">options design post (Oct 29)</a>; <a href="https://x.com/RoboticsReserve/status/2116302858295398662">Office and covered calls (Oct 30)</a>; payout posts you shared; DEXTools and CoinDataFlow market pages; <a href="https://x.com/wisehw25/status/2116331263904927804">@wisehw25 analysis</a>. The project's website was blocked for me.</li>
+<li>Robinhood Chain background: The Block, The Defiant, CertiK, CryptoBriefing.</li>
+</ul>
+<p class="small mut">X data came from a paid search API on Oct 31. Search results can be incomplete. Self-reported figures are marked as such. Prices change by the minute.</p>
+<div class="disc"><b>Education, not advice.</b> This guide explains how these payouts work and what to verify. It is not a recommendation to buy, hold or sell anything. These are small, young tokens that can lose most of their value, and a payout can fall to zero.</div>
+</section>
+</main>
+<script>
+var tabs=[["start","Overview"],["index","INDEX"],["bucket","BUCKET"],["rbtx","RBTX"],["calc","Yield"],["trust","Control"],["claims","Claims"],["quiz","Quiz"],["src","Sources"]];
+var nav=document.getElementById('tabs');
+tabs.forEach(function(t){var b=document.createElement('button');b.textContent=t[1];b.dataset.id=t[0];b.onclick=function(){show(t[0])};nav.appendChild(b)});
+function show(id){document.querySelectorAll('section').forEach(function(s){s.classList.toggle('on',s.id==='s-'+id)});document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.id===id)});window.scrollTo(0,0);try{history.replaceState(null,'','#'+id)}catch(e){}}
+function $(i){return document.getElementById(i)}
+var yieldPct=0;
+function fmt(n,d){return n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
+function calc(){
+  var cap=parseFloat($('cap').value),dist=parseFloat($('dist').value),el=parseFloat($('elig').value)/100,hold=parseFloat($('hold').value),m=parseFloat($('mult').value);
+  var o=$('out');
+  if(!(cap>0)||!(dist>0)||!(el>0)){o.textContent='Enter a market cap, 30-day distributions and the eligible share.';yieldPct=0;tiers();return}
+  var pool=cap*el,annual=dist*m*12,y=annual/pool*100;yieldPct=y;
+  var t='Annual payout rate: '+fmt(y,1)+'% of eligible value. ';
+  if(hold>0){var mo=hold*dist*m/pool;t+='A $'+fmt(hold,2)+' holding gets about $'+fmt(mo,2)+' a month. '}
+  t+=(y<7?'That is below the 7% USDG Earn benchmark, before any price risk.':'That is above the 7% benchmark, but ask whether volume can stay there, and remember the price risk.');
+  o.textContent=t;tiers();
+}
+function preset(k){
+  var n='';
+  if(k==='i1'){$('cap').value=4690000;$('dist').value=27540;$('elig').value=100;$('hold').value=48;$('ip').value=0.0048;n='INDEX at Oct 24 figures: cap about $4.69M, $27.5K to holders over 30 days (DefiLlama). 10,000 INDEX was about $48. Eligible share set to 100%, which understates the rate if less supply is eligible.'}
+  if(k==='i2'){$('cap').value=8650000;$('dist').value=27540;$('elig').value=100;$('hold').value=85;$('ip').value=0.00885;n='INDEX with the price implied by the tweet (about +85%). Distributions are left at the old level, so the rate falls unless volume rises. Try the 2x and 4x volume settings.'}
+  if(k==='b'){$('cap').value='';$('dist').value=58000;$('elig').value=100;$('hold').value=100;n='BUCKET: $154,492 over roughly 80 days is about $58K per 30 days (site figure, may be cached, covers all holders and cards). Enter the current market cap yourself.'}
+  if(k==='r'){$('cap').value=243000;$('dist').value=19761;$('elig').value=100;$('hold').value=100;n='RBTX: $15,150 over 23 payouts is about $659 per payout; times 30 is about $19.8K a month. That is a launch-period pace and gives a rate near 100% a year, so test the 25% and 50% volume settings. Eligible share is unknown; lower it to test.'}
+  $('presetNote').textContent=n;calc();
+}
+function tiers(){
+  var p=parseFloat($('ip').value),t=$('tiers');
+  var rows=[[9600,'NVDA'],[11600,'+ AAPL, MSFT'],[32000,'+ AMZN, GOOGL, SPCX, META, TSLA'],[180000,'All 18 stocks']];
+  var h='<tr><th>Hold about</th><th>Cost at this price</th><th>Gets</th><th>Monthly at the yield above</th></tr>';
+  rows.forEach(function(r){
+    var cost=p>0?r[0]*p:0;
+    var mo=(yieldPct>0&&cost>0)?fmt(cost*yieldPct/100/12,2):'-';
+    h+='<tr><td>'+r[0].toLocaleString('en-US')+' INDEX</td><td>'+(cost>0?'$'+fmt(cost,2):'-')+'</td><td>'+r[1]+'</td><td>'+(mo==='-'?'-':'$'+mo)+'</td></tr>';
+  });
+  t.innerHTML=h;
+}
+['cap','dist','elig','hold','mult'].forEach(function(i){$(i).addEventListener('input',calc);$(i).addEventListener('change',calc)});
+$('ip').addEventListener('input',tiers);
+tiers();
+var Q=[
+["What actually funds an INDEX payout?",0,"A 3% ETH tax on INDEX trades buys the stock tokens. No company pays anything.",["The 3% trade tax converted into stock tokens","Dividends from the companies","Robinhood's treasury","New INDEX being minted"]],
+["RBTX shows a 0% token tax yet pays holders. What does that imply?",1,"Payouts come from fees collected through the launchpad (the team's 'Pons fee wallet'), so continuing to pay is a team decision unless routing is enforced on chain.",["The payouts must be fake","The money comes from a team-controlled fee wallet, not a token tax","Stock Tokens pay dividends automatically","The tax is hidden in the contract"]],
+["BUCKET's rules page and app disagree on what?",2,"The rules page says the on-chain Drop floor is 10,000 BUCKET; the app says 65,000 to earn. Confirm before sizing.",["The 3% fee","The supply","The minimum balance to earn","The number of stocks"]],
+["Why can RBTX's '$100 minimum' bite you?",3,"It is measured in dollars at the snapshot, so a price drop can push your balance below $100 without you selling anything.",["It is paid in ETH","It resets weekly","It requires staking","It is in dollars, so a price drop can disqualify you"]],
+["What does Bucket's official Fantasy Draft post confirm about fees?",1,"It describes the leagues (bench, add/drop, trade, swap) and friend-settled prizes, but nothing about fees or Drops.",["Fees go to Drops","Nothing about fees","20% to the owner","A 3% entry fee"]],
+["Why should you not annualize RBTX's average payout of about $659?",2,"365 x $659 is roughly $240K, close to the entire $243K market cap. Either volume stays at launch levels or payouts shrink.",["It is paid weekly","It is in a different currency","It would equal about the whole market cap each year","It includes NFT sales"]],
+["The tweet says 9,600 INDEX gets you NVDA only. What else shapes your payout?",0,"Each payout skips anything under about $0.03 per stock, so size decides which stocks you receive; the thresholds also move with price and eligible supply.",["A per-stock minimum of about $0.03","A lock-up of 30 days","A vote each day","A fee for claiming"]]
+];
+var qd=$('quiz'),sc=0,ans=0;
+Q.forEach(function(q,i){
+  var d=document.createElement('div');d.className='card';
+  var b0=document.createElement('b');b0.textContent=(i+1)+'. '+q[0];d.appendChild(b0);
+  var e=document.createElement('div');e.className='exp';e.textContent=q[2];
+  q[3].forEach(function(o,j){
+    var b=document.createElement('button');b.className='opt';b.textContent=o;
+    b.onclick=function(){
+      if(d.dataset.done)return;d.dataset.done=1;ans++;
+      if(j===q[1]){sc++;b.classList.add('ok')}else{b.classList.add('no');d.querySelectorAll('.opt')[q[1]].classList.add('ok')}
+      e.style.display='block';$('score').textContent='Score: '+sc+' / '+ans+' answered of '+Q.length;
+    };
+    d.appendChild(b);
+  });
+  d.appendChild(e);qd.appendChild(d);
+});
+var h=(location.hash||'').slice(1);
+show(tabs.some(function(t){return t[0]===h})?h:'start');
+</script>
+</body>
+</html>
